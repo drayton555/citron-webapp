@@ -18,21 +18,8 @@ document.getElementById('next-btn').addEventListener('click', function() {
     const responseValue = responseElement.value.trim();
 
     if (responseValue) {
-        // Store response
-        switch (currentQuestionIndex) {
-            case 0:
-                responses.idea = responseValue;
-                break;
-            case 1:
-                responses.targetMarket = responseValue;
-                break;
-            case 2:
-                responses.uniqueSellingPoints = responseValue;
-                break;
-            case 3:
-                responses.potentialChallenges = responseValue;
-                break;
-        }
+        // Store response dynamically based on the current question
+        responses[Object.keys(responses)[currentQuestionIndex]] = responseValue;
 
         // Move to the next question
         currentQuestionIndex++;
@@ -131,6 +118,34 @@ function handlePaymentResponse(response) {
     if (response === 'Yes') {
         yesCount++;
         localStorage.setItem('yesCount', yesCount);
-    } else {
+    } else if (response === 'No') {
         noCount++;
-        localStorage.setItem('noCount', noCount
+        localStorage.setItem('noCount', noCount);
+    }
+    alert(`Thank you for your response! Yes: ${yesCount}, No: ${noCount}`);
+}
+
+function goBack() {
+    document.getElementById('conversation-section').style.display = 'block';
+    document.getElementById('result').style.display = 'none';
+    currentQuestionIndex = 0;
+    document.getElementById('question').innerText = questions[currentQuestionIndex];
+    document.getElementById('response').value = '';
+    document.getElementById('payment-question').style.display = 'none';
+}
+
+// Firebase initialization (optional, based on your needs)
+// Replace with your Firebase project configuration
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID",
+    measurementId: "YOUR_MEASUREMENT_ID"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
