@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Citron</title>
     <link rel="stylesheet" href="static/css/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Add Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"></script>
@@ -21,7 +21,7 @@
                     <!-- Initial question -->
                     <p id="question">What is your business idea?</p>
                     <textarea id="response" required></textarea><br>
-                    <button id="next-btn">Next</button>
+                    <button id="next-btn" class="button">Next</button>
                 </div>
             </section>
             <section id="result" style="display:none;">
@@ -33,13 +33,13 @@
                 <pre id="analysis"></pre>
                 <div id="payment-question" style="display:none;">
                     <p>Would you pay $30 a month for this service if it provided accurate data, business ideation, business plan generation, real-time tracking of all data points, and more?</p>
-                    <button onclick="handlePaymentResponse('Yes')">Yes</button>
-                    <button onclick="handlePaymentResponse('No')">No</button>
+                    <button onclick="handlePaymentResponse('Yes')" class="button">Yes</button>
+                    <button onclick="handlePaymentResponse('No')" class="button">No</button>
                 </div>
-                <button onclick="goBack()">Go back</button>
+                <button onclick="goBack()" class="button">Go back</button>
             </section>
         </main>
     </div>
-    <script src="static/js/script.js"></script>
+    <script src="static/js/script.js" defer></script>
 </body>
 </html>
