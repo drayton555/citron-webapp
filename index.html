@@ -5,6 +5,9 @@
     <title>Citron</title>
     <link rel="stylesheet" href="static/css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Add Chart.js for graphs -->
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"></script>
 </head>
 <body>
     <div class="container">
@@ -13,12 +16,13 @@
             <h1>Welcome to Citron</h1>
         </header>
         <main>
-            <section id="input-section">
-                <form id="idea-form">
-                    <label for="idea">Enter your business idea:</label>
-                    <textarea name="idea" id="idea" required></textarea><br>
-                    <button type="submit">Submit</button>
-                </form>
+            <section id="conversation-section">
+                <div id="conversation">
+                    <!-- Initial question -->
+                    <p id="question">What is your business idea?</p>
+                    <textarea id="response" required></textarea><br>
+                    <button id="next-btn">Next</button>
+                </div>
             </section>
             <section id="result" style="display:none;">
                 <h2>Analysis Result</h2>
