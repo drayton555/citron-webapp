@@ -9,7 +9,7 @@ const responses = {
 const questions = [
     "What do you want to create today?",
     "Who are you making it for?",
-    "What are your thing unique?",
+    "What makes your creation unique?",
     "What potential challenges do you foresee?"
 ];
 
