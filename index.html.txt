@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Citron</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Citron</h1>
+        </header>
+        <main>
+            <section id="input-section">
+                <form id="idea-form">
+                    <label for="idea">Enter your business idea:</label>
+                    <textarea name="idea" id="idea" required></textarea><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+            <section id="result" style="display:none;">
+                <h2>Analysis Result</h2>
+                <pre id="analysis"></pre> <!-- Changed to <pre> to preserve line breaks -->
+                <div id="payment-question" style="display:none;">
+                    <p>Would you pay $30 a month for this service if it provided accurate data, business ideation, business plan generation, real-time tracking of all data points, and more?</p>
+                    <button onclick="handlePaymentResponse('Yes')">Yes</button>
+                    <button onclick="handlePaymentResponse('No')">No</button>
+                </div>
+                <button onclick="goBack()">Go back</button>
+            </section>
+        </main>
+    </div>
+    <script src="static/js/script.js"></script>
+</body>
+</html>
