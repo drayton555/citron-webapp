@@ -7,9 +7,9 @@ const responses = {
 };
 
 const questions = [
-    "What is your business idea?",
-    "Who is your target market?",
-    "What are your unique selling points?",
+    "What do you want to create today?",
+    "Who are you making it for?",
+    "What are your thing unique?",
     "What potential challenges do you foresee?"
 ];
 
