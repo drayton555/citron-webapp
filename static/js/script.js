@@ -1,14 +1,59 @@
-let yesCount = localStorage.getItem('yesCount') ? parseInt(localStorage.getItem('yesCount')) : 0;
-let noCount = localStorage.getItem('noCount') ? parseInt(localStorage.getItem('noCount')) : 0;
+let currentQuestionIndex = 0;
+const responses = {
+    idea: '',
+    targetMarket: '',
+    uniqueSellingPoints: '',
+    potentialChallenges: ''
+};
 
-document.getElementById('idea-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting the traditional way
+const questions = [
+    "What is your business idea?",
+    "Who is your target market?",
+    "What are your unique selling points?",
+    "What potential challenges do you foresee?"
+];
+
+document.getElementById('next-btn').addEventListener('click', function() {
+    const responseElement = document.getElementById('response');
+    const responseValue = responseElement.value.trim();
+
+    if (responseValue) {
+        // Store response
+        switch (currentQuestionIndex) {
+            case 0:
+                responses.idea = responseValue;
+                break;
+            case 1:
+                responses.targetMarket = responseValue;
+                break;
+            case 2:
+                responses.uniqueSellingPoints = responseValue;
+                break;
+            case 3:
+                responses.potentialChallenges = responseValue;
+                break;
+        }
+
+        // Move to the next question
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < questions.length) {
+            document.getElementById('question').innerText = questions[currentQuestionIndex];
+            responseElement.value = '';
+        } else {
+            displayResults();
+        }
+    } else {
+        alert('Please provide a response.');
+    }
+});
+
+function displayResults() {
+    const summary = `Summary: Your idea is "${responses.idea}".\n` +
+                    `Target Market: ${responses.targetMarket}\n` +
+                    `Unique Selling Points: ${responses.uniqueSellingPoints}\n` +
+                    `Potential Challenges: ${responses.potentialChallenges}`;
     
-    // Get the value of the idea input field
-    const idea = document.getElementById('idea').value;
-    
-    // Generate mock analysis data
-    const summary = `Summary: Your idea is to "${idea}".`;
     const insights = `Key Insights: This idea has a unique angle that could attract a niche market.`;
     const marketSize = `Potential Market Size: Approximately $5 million.`;
     const competitors = `Competitor Count: Around 10 competitors in this space.`;
@@ -24,13 +69,13 @@ document.getElementById('idea-form').addEventListener('submit', function(event) 
     // Show the payment question
     document.getElementById('payment-question').style.display = 'block';
     
-    // Hide the form and show the result
-    document.getElementById('idea-form').style.display = 'none';
+    // Hide the conversation section and show the result
+    document.getElementById('conversation-section').style.display = 'none';
     document.getElementById('result').style.display = 'block';
 
     // Create charts with mock data
     createCharts();
-});
+}
 
 function createCharts() {
     const marketGrowthCtx = document.getElementById('marketGrowthChart').getContext('2d');
@@ -79,21 +124,13 @@ function createCharts() {
     });
 }
 
+let yesCount = localStorage.getItem('yesCount') ? parseInt(localStorage.getItem('yesCount')) : 0;
+let noCount = localStorage.getItem('noCount') ? parseInt(localStorage.getItem('noCount')) : 0;
+
 function handlePaymentResponse(response) {
     if (response === 'Yes') {
         yesCount++;
         localStorage.setItem('yesCount', yesCount);
     } else {
         noCount++;
-        localStorage.setItem('noCount', noCount);
-    }
-    alert(`Thank you for your response: ${response}`);
-    console.log(`Yes: ${yesCount}, No: ${noCount}`);
-    goBack();
-}
-
-function goBack() {
-    document.getElementById('result').style.display = 'none'; // Hide the result
-    document.getElementById('idea-form').style.display = 'block'; // Show the form
-    document.getElementById('payment-question').style.display = 'none'; // Hide the payment question
-}
+        localStorage.setItem('noCount', noCount
