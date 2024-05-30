@@ -24,10 +24,10 @@ header {
 }
 
 .logo {
-    width: 130px;  /* Set the desired width */
-    height: auto;  /* Maintain aspect ratio */
-    display: block;
-    margin: 0 auto;  /* Center the logo */
+    display: inline-block;
+    width: 100px; /* Adjust width as necessary */
+    height: auto;
+    margin: 0 auto;
 }
 
 h1 {
