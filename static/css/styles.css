@@ -13,7 +13,7 @@ body {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    max-width: 800px;
     width: 100%;
     padding: 20px;
 }
@@ -21,6 +21,11 @@ body {
 header {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
 }
 
 h1 {
@@ -52,7 +57,7 @@ textarea {
 }
 
 button {
-    background-color: #007bff;
+    background-color: #ffcc00; /* Brand yellow color */
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -63,7 +68,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #e6b800; /* Slightly darker yellow for hover effect */
 }
 
 pre {
@@ -74,4 +79,17 @@ pre {
     border-radius: 4px;
     width: 100%;
     box-sizing: border-box;
+}
+
+#dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+canvas {
+    max-width: 100%;
+    margin-bottom: 20px;
 }
