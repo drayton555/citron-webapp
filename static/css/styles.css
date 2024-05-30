@@ -57,7 +57,8 @@ h1 {
     resize: none;
 }
 
-#next-btn, button {
+/* Button styles */
+.button {
     background-color: #ffcc00; /* Brand yellow color */
     color: #fff;
     border: none;
@@ -66,10 +67,17 @@ h1 {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    text-align: center; /* Ensure text is centered */
 }
 
-#next-btn:hover, button:hover {
+.button:hover {
     background-color: #e6b800; /* Slightly darker yellow for hover effect */
+}
+
+/* Apply button styles to specific elements */
+#next-btn, .button {
+    display: inline-block;
+    margin-bottom: 10px; /* Add space between buttons */
 }
 
 pre {
@@ -93,4 +101,24 @@ pre {
 canvas {
     max-width: 100%;
     margin-bottom: 20px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    #response {
+        height: 80px;
+    }
+
+    .button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
 }
