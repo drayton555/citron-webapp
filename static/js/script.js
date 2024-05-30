@@ -61,9 +61,61 @@ function displayResults() {
 
     // Create charts with mock data
     createCharts();
+}
 
-    // After displaying results, go to the Business Plan page
-    goToBusinessPlan();
+function createCharts() {
+    // Ensure Chart.js is loaded
+    if (typeof Chart === 'undefined') {
+        console.error('Chart.js library is not loaded.');
+        return;
+    }
+
+    const marketGrowthCtx = document.getElementById('marketGrowthChart').getContext('2d');
+    const customerSpendingCtx = document.getElementById('customerSpendingChart').getContext('2d');
+
+    // Create market growth chart
+    new Chart(marketGrowthCtx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Market Growth',
+                data: [30000, 35000, 40000, 45000, 50000, 55000],
+                backgroundColor: 'rgba(255, 204, 0, 0.2)',
+                borderColor: '#ffcc00',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Create customer spending habits chart
+    new Chart(customerSpendingCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Product A', 'Product B', 'Product C', 'Product D', 'Product E'],
+            datasets: [{
+                label: 'Customer Spending Habits',
+                data: [12000, 15000, 10000, 17000, 13000],
+                backgroundColor: '#ffcc00',
+                borderColor: '#ffcc00',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 }
 
 function goToBusinessPlan() {
