@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <title>Citron</title>
     <link rel="stylesheet" href="static/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Add Chart.js for graphs -->
 </head>
 <body>
     <div class="container">
         <header>
+            <img src="static/img/Lemon.png" alt="Citron Logo" class="logo">
             <h1>Welcome to Citron</h1>
         </header>
         <main>
@@ -20,7 +22,11 @@
             </section>
             <section id="result" style="display:none;">
                 <h2>Analysis Result</h2>
-                <pre id="analysis"></pre> <!-- Changed to <pre> to preserve line breaks -->
+                <div id="dashboard">
+                    <canvas id="marketGrowthChart"></canvas>
+                    <canvas id="customerSpendingChart"></canvas>
+                </div>
+                <pre id="analysis"></pre>
                 <div id="payment-question" style="display:none;">
                     <p>Would you pay $30 a month for this service if it provided accurate data, business ideation, business plan generation, real-time tracking of all data points, and more?</p>
                     <button onclick="handlePaymentResponse('Yes')">Yes</button>
