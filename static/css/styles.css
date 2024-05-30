@@ -123,6 +123,14 @@ th {
     background-color: #f4f4f4;
 }
 
+/* Disclaimer styles */
+.disclaimer {
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+    margin-top: 20px;
+}
+
 /* Media queries for responsiveness */
 @media (max-width: 600px) {
     .container {
