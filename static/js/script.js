@@ -1,5 +1,5 @@
-let yesCount = 0;
-let noCount = 0;
+let yesCount = localStorage.getItem('yesCount') ? parseInt(localStorage.getItem('yesCount')) : 0;
+let noCount = localStorage.getItem('noCount') ? parseInt(localStorage.getItem('noCount')) : 0;
 
 document.getElementById('idea-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting the traditional way
@@ -82,8 +82,10 @@ function createCharts() {
 function handlePaymentResponse(response) {
     if (response === 'Yes') {
         yesCount++;
+        localStorage.setItem('yesCount', yesCount);
     } else {
         noCount++;
+        localStorage.setItem('noCount', noCount);
     }
     alert(`Thank you for your response: ${response}`);
     console.log(`Yes: ${yesCount}, No: ${noCount}`);
