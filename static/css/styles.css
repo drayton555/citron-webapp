@@ -34,13 +34,6 @@ header {
     margin-bottom: 20px;
 }
 
-.logo {
-    width: 200px;
-    height: auto;
-    display: block;
-    margin: 0 auto 10px auto;
-}
-
 h1 {
     font-family: 'Orbitron', sans-serif;
     font-size: 28px;
