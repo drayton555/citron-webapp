@@ -1,86 +1,77 @@
-let currentQuestionIndex = 0;
-const responses = {
-    idea: '',
-    targetMarket: '',
-    uniqueSellingPoints: '',
-    potentialChallenges: ''
-};
+let currentSectionIndex = 0;
+const sections = document.querySelectorAll('section');
+const responses = {};
 
-const questions = [
-    "What do you want to create today?",
-    "Who are you making it for?",
-    "What makes your creation unique?",
-    "What potential challenges do you foresee?"
-];
-
+// Initialize the first section to be visible
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('next-btn').addEventListener('click', function() {
-        const responseElement = document.getElementById('response');
-        const responseValue = responseElement.value.trim();
-
-        if (responseValue) {
-            // Store response dynamically based on the current question
-            responses[Object.keys(responses)[currentQuestionIndex]] = responseValue;
-
-            // Move to the next question
-            currentQuestionIndex++;
-
-            if (currentQuestionIndex < questions.length) {
-                document.getElementById('question').innerText = questions[currentQuestionIndex];
-                responseElement.value = '';
-            } else {
-                displayResults();
-            }
-        } else {
-            alert('Please provide a response.');
-        }
-    });
+    sections[currentSectionIndex].classList.add('active');
 });
 
-function displayResults() {
-    const summary = `Summary: Your idea is "${responses.idea}".\n` +
-                    `Target Market: ${responses.targetMarket}\n` +
-                    `Unique Selling Points: ${responses.uniqueSellingPoints}\n` +
-                    `Potential Challenges: ${responses.potentialChallenges}`;
-    
-    const insights = `Key Insights: This idea has a unique angle that could attract a niche market.`;
-    const marketSize = `Potential Market Size: Approximately $5 million.`;
-    const competitors = `Competitor Count: Around 10 competitors in this space.`;
-    const realTimeValue = `Potential Real-Time Value: $45,678.90 with a +20% month-over-month growth.`;
-    const nextSteps = `Suggested Next Steps: Conduct a detailed market analysis and create a business plan.`;
+// Handle the next button click
+document.getElementById('next-btn').addEventListener('click', function() {
+    const responseElement = document.getElementById('response');
+    const responseValue = responseElement.value.trim();
 
-    // Combine all mock data into a single string
-    const analysis = `${summary}\n\n${insights}\n\n${marketSize}\n\n${competitors}\n\n${realTimeValue}\n\n${nextSteps}`;
-    
-    // Set the analysis text
-    document.getElementById('analysis').innerText = analysis;
+    if (responseValue) {
+        responses.idea = responseValue;
+        goToNextSection();
+    } else {
+        alert('Please provide a response.');
+    }
+});
 
-    // Hide the conversation section and show the result
-    document.getElementById('conversation-section').style.display = 'none';
-    document.getElementById('result').style.display = 'block';
+function goToNextSection() {
+    sections[currentSectionIndex].classList.remove('active');
+    currentSectionIndex++;
+    if (currentSectionIndex < sections.length) {
+        sections[currentSectionIndex].classList.add('active');
 
-    // Create charts with mock data
-    createCharts();
+        // Initialize charts when entering the dashboard section
+        if (currentSectionIndex === 1) {
+            createCharts();
+        }
+    }
 }
 
 function createCharts() {
-    // Ensure Chart.js is loaded
-    if (typeof Chart === 'undefined') {
-        console.error('Chart.js library is not loaded.');
-        return;
-    }
+    createPieChart('marketShareChart', ['Product A', 'Product B', 'Product C'], [30, 40, 30]);
+    createLineChart('salesVolumeChart', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [150, 200, 250, 300, 350, 400]);
+    createBarChart('customerDemographicsChart', ['18-24', '25-34', '35-44', '45-54'], [30, 50, 40, 20]);
+    createRadarChart('productPerformanceChart', ['Quality', 'Price', 'Durability', 'Features', 'Design'], [4, 3, 5, 2, 4]);
+    createDoughnutChart('revenueByRegionChart', ['North America', 'Europe', 'Asia'], [40, 30, 30]);
+    createBarChart('advertisingSpendChart', ['Q1', 'Q2', 'Q3', 'Q4'], [5000, 7000, 6000, 8000]);
+    createLineChart('competitorAnalysisChart', ['Competitor A', 'Competitor B', 'Competitor C'], [70, 60, 50]);
+    createLineChart('customerRetentionRateChart', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [80, 85, 78, 82, 88, 90]);
+    createBarChart('marketGrowthRateChart', ['2019', '2020', '2021', '2022'], [10, 15, 12, 18]);
+    createPieChart('salesConversionRateChart', ['Converted', 'Not Converted'], [25, 75]);
+}
 
-    const marketGrowthCtx = document.getElementById('marketGrowthChart').getContext('2d');
-    const customerSpendingCtx = document.getElementById('customerSpendingChart').getContext('2d');
+function createPieChart(id, labels, data) {
+    const ctx = document.getElementById(id).getContext('2d');
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: ['#ffcc00', '#e6b800', '#ff9900'],
+            }]
+        },
+        options: {
+            responsive: true,
+        }
+    });
+}
 
-    // Create market growth chart
-    new Chart(marketGrowthCtx, {
+function createLineChart(id, labels, data) {
+    const ctx = document.getElementById(id).getContext('2d');
+    new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            labels: labels,
             datasets: [{
-                label: 'Market Growth',
-                data: [30000, 35000, 40000, 45000, 50000, 55000],
+                label: 'Value',
+                data: data,
                 backgroundColor: 'rgba(255, 204, 0, 0.2)',
                 borderColor: '#ffcc00',
                 borderWidth: 1
@@ -91,18 +82,21 @@ function createCharts() {
                 y: {
                     beginAtZero: true
                 }
-            }
+            },
+            responsive: true,
         }
     });
+}
 
-    // Create customer spending habits chart
-    new Chart(customerSpendingCtx, {
+function createBarChart(id, labels, data) {
+    const ctx = document.getElementById(id).getContext('2d');
+    new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Product A', 'Product B', 'Product C', 'Product D', 'Product E'],
+            labels: labels,
             datasets: [{
-                label: 'Customer Spending Habits',
-                data: [12000, 15000, 10000, 17000, 13000],
+                label: 'Value',
+                data: data,
                 backgroundColor: '#ffcc00',
                 borderColor: '#ffcc00',
                 borderWidth: 1
@@ -113,21 +107,54 @@ function createCharts() {
                 y: {
                     beginAtZero: true
                 }
-            }
+            },
+            responsive: true,
         }
     });
 }
 
-function goToBusinessPlan() {
-    // Hide the result section and show the business plan section
-    document.getElementById('result').style.display = 'none';
-    document.getElementById('business-plan').style.display = 'block';
+function createRadarChart(id, labels, data) {
+    const ctx = document.getElementById(id).getContext('2d');
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Performance',
+                data: data,
+                backgroundColor: 'rgba(255, 204, 0, 0.2)',
+                borderColor: '#ffcc00',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+        }
+    });
+}
+
+function createDoughnutChart(id, labels, data) {
+    const ctx = document.getElementById(id).getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: ['#ffcc00', '#e6b800', '#ff9900'],
+            }]
+        },
+        options: {
+            responsive: true,
+        }
+    });
 }
 
 function goToCitronIntroduction() {
     // Hide the business plan section and show the Citron introduction section
-    document.getElementById('business-plan').style.display = 'none';
-    document.getElementById('citron-introduction').style.display = 'block';
+    sections[currentSectionIndex].classList.remove('active');
+    currentSectionIndex++;
+    sections[currentSectionIndex].classList.add('active');
 }
 
 function handleFinalResponse(response) {
