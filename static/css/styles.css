@@ -41,6 +41,9 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    background-color: #F0F0F0;
+    padding: 10px 20px;
+    border-radius: 12px;
 }
 
 .header .profile {
@@ -59,12 +62,6 @@ body {
     margin: 0;
     font-family: 'Orbitron', sans-serif;
     font-size: 18px;
-    color: #ffcc00;
-}
-
-.header .profile-info p {
-    margin: 0;
-    font-size: 14px;
     color: #ffcc00;
 }
 
@@ -204,7 +201,7 @@ footer {
     position: relative;
     margin-top: 20px;
     width: 100%;
-    background-color: #FFFFFF;
+    background-color: #F0F0F0;
     padding: 10px 0;
 }
 
