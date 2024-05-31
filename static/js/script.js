@@ -5,6 +5,9 @@ const responses = {};
 // Initialize the first section to be visible
 document.addEventListener('DOMContentLoaded', function() {
     sections[currentSectionIndex].style.display = 'block';
+    if (currentSectionIndex === 1) {
+        document.getElementById('user-prompt').innerText = responses.idea || '';
+    }
 });
 
 // Handle the next button click in the conversation section
@@ -14,6 +17,7 @@ document.getElementById('next-btn').addEventListener('click', function() {
 
     if (responseValue) {
         responses.idea = responseValue;
+        document.getElementById('user-prompt').innerText = responseValue;  // Update user prompt in the dashboard section
         goToNextSection();
     } else {
         alert('Please provide a response.');
