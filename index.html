@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Citron</title>
+    <title>Citron Dashboard</title>
     <link rel="stylesheet" href="static/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -12,10 +12,36 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Citron</h1>
-        </header>
-        <main>
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <img src="static/img/lemon.svg" alt="Citron Logo" class="logo">
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Activity</a></li>
+                <li><a href="#">Schedules</a></li>
+                <li><a href="#">Payouts</a></li>
+                <li><a href="#">Statistics</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="header">
+                <div class="profile">
+                    <img src="static/img/profile.svg" alt="Profile Picture">
+                    <div class="profile-info">
+                        <h3>Johnny Dolio</h3>
+                        <p>Good Morning..</p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button>View Profile</button>
+                    <button>Edit Profile</button>
+                </div>
+            </header>
+
+            <!-- Prompt Section -->
             <section id="conversation-section">
                 <div id="conversation">
                     <!-- Initial question -->
@@ -24,14 +50,54 @@
                     <button id="next-btn" class="button">Next</button>
                 </div>
             </section>
+
+            <!-- Dashboard Section -->
             <section id="result" style="display:none;">
-                <h2>Analysis Result</h2>
-                <div id="dashboard">
-                    <canvas id="marketGrowthChart"></canvas>
-                    <canvas id="customerSpendingChart"></canvas>
+                <div class="stats-overview">
+                    <h2>Market Data</h2>
+                    <div class="stats-cards">
+                        <div class="card">
+                            <h3>Market Share</h3>
+                            <canvas id="marketShareChart"></canvas>
+                        </div>
+                        <div class="card">
+                            <h3>Sales Volume</h3>
+                            <canvas id="salesVolumeChart"></canvas>
+                        </div>
+                        <div class="card">
+                            <h3>Customer Demographics</h3>
+                            <canvas id="customerDemographicsChart"></canvas>
+                        </div>
+                        <div class="card">
+                            <h3>Product Performance</h3>
+                            <canvas id="productPerformanceChart"></canvas>
+                        </div>
+                        <div class="card">
+                            <h3>Revenue by Region</h3>
+                            <canvas id="revenueByRegionChart"></canvas>
+                        </div>
+                        <div class="card">
+                            <h3>Advertising Spend</h3>
+                            <canvas id="advertisingSpendChart"></canvas>
+                        </div>
+                        <div class="card">
+                            <h3>Competitor Analysis</h3>
+                            <canvas id="competitorAnalysisChart"></canvas>
+                        </div>
+                        <div class="card">
+                            <h3>Customer Retention Rate</h3>
+                            <canvas id="customerRetentionRateChart"></canvas>
+                        </div>
+                        <div class="card">
+                            <h3>Market Growth Rate</h3>
+                            <canvas id="marketGrowthRateChart"></canvas>
+                        </div>
+                        <div class="card">
+                            <h3>Sales Conversion Rate</h3>
+                            <canvas id="salesConversionRateChart"></canvas>
+                        </div>
+                    </div>
                 </div>
-                <pre id="analysis"></pre>
-                <button onclick="goToBusinessPlan()" class="button">Next</button>
             </section>
 
             <!-- Business Plan Section -->
@@ -83,10 +149,10 @@
                     
                     <h3>Next Steps</h3>
                     <ul>
-                        <li>Let's conduct a detailed market analysis to identify target demographics and purchasing behaviors.</li>
-                        <li>Let's develop a comprehensive marketing strategy to attract both new and existing comic book fans.</li>
-                        <li>Let's secure initial funding to cover startup costs, including inventory, store fixtures, and marketing expenses.</li>
-                        <li>Let's establish relationships with key comic book distributors and publishers to ensure a steady supply of new releases and exclusive items.</li>
+                        <li>Conduct a detailed market analysis to identify target demographics and purchasing behaviors.</li>
+                        <li>Develop a comprehensive marketing strategy to attract both new and existing comic book fans.</li>
+                        <li>Secure initial funding to cover startup costs, including inventory, store fixtures, and marketing expenses.</li>
+                        <li>Establish relationships with key comic book distributors and publishers to ensure a steady supply of new releases and exclusive items.</li>
                     </ul>
                     
                     <h3>Milestones</h3>
@@ -102,16 +168,15 @@
 
             <!-- Citron Introduction Section -->
             <section id="citron-introduction" style="display:none;">
-                <h2>Introducing...</h2>
-                <p>Citron! Your AI Co-Founder you didn't know you needed. It will be able to help you with business ideation (giving you access to accurate, real-time and customized market data), business planning, task tracking and management, and much more! It will allow you to turn your ideas into great businesses. Is this something you'd pay for?</p>
+                <h2>Introducing Citron</h2>
+                <p>Introducing Citron, your AI Co-Founder you didn't know you needed. It will be able to help you with business ideation (giving you access to accurate, real-time and customized market data), business planning, task tracking and management, and many more! It will allow you to turn your ideas into great businesses. Is this something you'd pay for?</p>
                 <button onclick="handleFinalResponse('Yes')" class="button">Yes</button>
                 <button onclick="handleFinalResponse('No')" class="button">No</button>
             </section>
-        </main>
+        </div>
     </div>
-    <!-- Disclaimer Section -->
     <footer>
-        <p class="disclaimer">This is a mock app for proof of concept. None of the information presented here is real. Please do not enter any real information.</p>
+        <p class="disclaimer">This is a mock app for proof of concept. None of the information is real. Please do not enter any real information.</p>
     </footer>
     <script src="static/js/script.js" defer></script>
 </body>
