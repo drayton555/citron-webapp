@@ -1,23 +1,40 @@
-let currentSectionIndex = 0;
-const sections = document.querySelectorAll('section');
-const responses = {};
+let currentQuestionIndex = 0;
+const responses = {
+    idea: '',
+    targetMarket: '',
+    uniqueSellingPoints: '',
+    potentialChallenges: ''
+};
 
-// Initialize the first section to be visible
+const questions = [
+    "What do you want to create today?",
+    "Who are you making it for?",
+    "What makes your creation unique?",
+    "What potential challenges do you foresee?"
+];
+
 document.addEventListener('DOMContentLoaded', function() {
-    sections[currentSectionIndex].classList.add('active');
-});
+    document.getElementById('next-btn').addEventListener('click', function() {
+        const responseElement = document.getElementById('response');
+        const responseValue = responseElement.value.trim();
 
-// Handle the next button click in the conversation section
-document.getElementById('next-btn').addEventListener('click', function() {
-    const responseElement = document.getElementById('response');
-    const responseValue = responseElement.value.trim();
+        if (responseValue) {
+            // Store response dynamically based on the current question
+            responses[Object.keys(responses)[currentQuestionIndex]] = responseValue;
 
-    if (responseValue) {
-        responses.idea = responseValue;
-        goToNextSection();
-    } else {
-        alert('Please provide a response.');
-    }
+            // Move to the next question
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                document.getElementById('question').innerText = questions[currentQuestionIndex];
+                responseElement.value = '';
+            } else {
+                displayResults();
+            }
+        } else {
+            alert('Please provide a response.');
+        }
+    });
 });
 
 function goToNextSection() {
