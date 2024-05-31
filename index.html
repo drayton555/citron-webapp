@@ -22,53 +22,65 @@
             </section>
 
             <!-- Dashboard Section -->
-            <section id="result" style="display:none;">
-                <div class="stats-overview">
-                    <h2>Market Data</h2>
-                    <div class="stats-cards">
-                        <div class="card">
-                            <h3>Market Share</h3>
-                            <canvas id="marketShareChart"></canvas>
-                        </div>
-                        <div class="card">
-                            <h3>Sales Volume</h3>
-                            <canvas id="salesVolumeChart"></canvas>
-                        </div>
-                        <div class="card">
-                            <h3>Customer Demographics</h3>
-                            <canvas id="customerDemographicsChart"></canvas>
-                        </div>
-                        <div class="card">
-                            <h3>Product Performance</h3>
-                            <canvas id="productPerformanceChart"></canvas>
-                        </div>
-                        <div class="card">
-                            <h3>Revenue by Region</h3>
-                            <canvas id="revenueByRegionChart"></canvas>
-                        </div>
-                        <div class="card">
-                            <h3>Advertising Spend</h3>
-                            <canvas id="advertisingSpendChart"></canvas>
-                        </div>
-                        <div class="card">
-                            <h3>Competitor Analysis</h3>
-                            <canvas id="competitorAnalysisChart"></canvas>
-                        </div>
-                        <div class="card">
-                            <h3>Customer Retention Rate</h3>
-                            <canvas id="customerRetentionRateChart"></canvas>
-                        </div>
-                        <div class="card">
-                            <h3>Market Growth Rate</h3>
-                            <canvas id="marketGrowthRateChart"></canvas>
-                        </div>
-                        <div class="card">
-                            <h3>Sales Conversion Rate</h3>
-                            <canvas id="salesConversionRateChart"></canvas>
-                        </div>
+        <section id="result" style="display:none;">
+            <div class="header">
+                <div class="profile">
+                    <img src="static/img/profile.svg" alt="Profile Picture">
+                    <div class="profile-info">
+                        <h3 id="user-prompt"></h3>
                     </div>
                 </div>
-            </section>
+                <div class="actions">
+                    <button>View Profile</button>
+                    <button>Edit Profile</button>
+                </div>
+            </div>
+            <div class="stats-overview">
+                <h2>Market Data</h2>
+                <div class="stats-cards">
+                    <div class="card">
+                        <h3>Market Share</h3>
+                        <canvas id="marketShareChart"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Sales Volume</h3>
+                        <canvas id="salesVolumeChart"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Customer Demographics</h3>
+                        <canvas id="customerDemographicsChart"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Product Performance</h3>
+                        <canvas id="productPerformanceChart"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Revenue by Region</h3>
+                        <canvas id="revenueByRegionChart"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Advertising Spend</h3>
+                        <canvas id="advertisingSpendChart"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Competitor Analysis</h3>
+                        <canvas id="competitorAnalysisChart"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Customer Retention Rate</h3>
+                        <canvas id="customerRetentionRateChart"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Market Growth Rate</h3>
+                        <canvas id="marketGrowthRateChart"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Sales Conversion Rate</h3>
+                        <canvas id="salesConversionRateChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
 
             <!-- Business Plan Section -->
             <section id="business-plan" style="display:none;">
