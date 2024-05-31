@@ -157,6 +157,15 @@ function createDoughnutChart(id, labels, data) {
     });
 }
 
+function goToBusinessPlan() {
+    console.log('Transitioning to the business plan page');
+    sections[currentSectionIndex].style.display = 'none';
+    currentSectionIndex++;
+    if (currentSectionIndex < sections.length) {
+        sections[currentSectionIndex].style.display = 'block';
+    }
+}
+
 function goToCitronIntroduction() {
     // Hide the business plan section and show the Citron introduction section
     sections[currentSectionIndex].style.display = 'none';
