@@ -1,47 +1,30 @@
-let currentQuestionIndex = 0;
-const responses = {
-    idea: '',
-    targetMarket: '',
-    uniqueSellingPoints: '',
-    potentialChallenges: ''
-};
+let currentSectionIndex = 0;
+const sections = document.querySelectorAll('section');
+const responses = {};
 
-const questions = [
-    "What do you want to create today?",
-    "Who are you making it for?",
-    "What makes your creation unique?",
-    "What potential challenges do you foresee?"
-];
-
+// Initialize the first section to be visible
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('next-btn').addEventListener('click', function() {
-        const responseElement = document.getElementById('response');
-        const responseValue = responseElement.value.trim();
+    sections[currentSectionIndex].style.display = 'block';
+});
 
-        if (responseValue) {
-            // Store response dynamically based on the current question
-            responses[Object.keys(responses)[currentQuestionIndex]] = responseValue;
+// Handle the next button click in the conversation section
+document.getElementById('next-btn').addEventListener('click', function() {
+    const responseElement = document.getElementById('response');
+    const responseValue = responseElement.value.trim();
 
-            // Move to the next question
-            currentQuestionIndex++;
-
-            if (currentQuestionIndex < questions.length) {
-                document.getElementById('question').innerText = questions[currentQuestionIndex];
-                responseElement.value = '';
-            } else {
-                displayResults();
-            }
-        } else {
-            alert('Please provide a response.');
-        }
-    });
+    if (responseValue) {
+        responses.idea = responseValue;
+        goToNextSection();
+    } else {
+        alert('Please provide a response.');
+    }
 });
 
 function goToNextSection() {
-    sections[currentSectionIndex].classList.remove('active');
+    sections[currentSectionIndex].style.display = 'none';
     currentSectionIndex++;
     if (currentSectionIndex < sections.length) {
-        sections[currentSectionIndex].classList.add('active');
+        sections[currentSectionIndex].style.display = 'block';
 
         // Initialize charts when entering the dashboard section
         if (currentSectionIndex === 1) {
@@ -169,9 +152,11 @@ function createDoughnutChart(id, labels, data) {
 
 function goToCitronIntroduction() {
     // Hide the business plan section and show the Citron introduction section
-    sections[currentSectionIndex].classList.remove('active');
+    sections[currentSectionIndex].style.display = 'none';
     currentSectionIndex++;
-    sections[currentSectionIndex].classList.add('active');
+    if (currentSectionIndex < sections.length) {
+        sections[currentSectionIndex].style.display = 'block';
+    }
 }
 
 function handleFinalResponse(response) {
