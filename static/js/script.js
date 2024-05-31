@@ -2,22 +2,24 @@ let currentSectionIndex = 0;
 const sections = document.querySelectorAll('section');
 const responses = {};
 
-// Initialize the first section to be visible
-document.addEventListener('DOMContentLoaded', function() {
-    sections[currentSectionIndex].style.display = 'block';
-    if (currentSectionIndex === 1) {
-        document.getElementById('user-prompt').innerText = responses.idea || '';
-    }
-});
-
-// Handle the next button click in the conversation section
 document.getElementById('next-btn').addEventListener('click', function() {
     const responseElement = document.getElementById('response');
     const responseValue = responseElement.value.trim();
 
     if (responseValue) {
+        // Create chat bubble for the user's input
+        const chatBubble = document.createElement('div');
+        chatBubble.className = 'chat-bubble user';
+        chatBubble.textContent = responseValue;
+        document.getElementById('chat-bubbles').appendChild(chatBubble);
+
         responses.idea = responseValue;
         document.getElementById('user-prompt').innerText = responseValue;  // Update user prompt in the dashboard section
+
+        // Clear the input field
+        responseElement.value = '';
+        responseElement.style.height = '40px';  // Reset to initial height
+
         goToNextSection();
     } else {
         alert('Please provide a response.');
