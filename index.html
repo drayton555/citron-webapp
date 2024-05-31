@@ -11,15 +11,18 @@
 <body>
     <div class="container">
 
-            <!-- Prompt Section -->
-            <section id="conversation-section">
-                <div id="conversation">
-                    <!-- Initial question -->
-                    <p id="question">What do you want to create today?</p>
-                    <textarea id="response" required></textarea><br>
-                    <button id="next-btn" class="button">Next</button>
-                </div>
-            </section>
+          <!-- Prompt Section -->
+<section id="conversation-section">
+    <div class="chat-container">
+        <div id="chat-bubbles" class="chat-bubbles">
+            <!-- Previous chat bubbles will go here -->
+        </div>
+        <div class="chat-input-container">
+            <textarea id="response" class="chat-input" placeholder="Type your idea..." required></textarea>
+            <button id="next-btn" class="chat-button">Send</button>
+        </div>
+    </div>
+</section>
 
             <!-- Dashboard Section -->
         <section id="result" style="display:none;">
