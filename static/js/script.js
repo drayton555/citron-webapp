@@ -25,13 +25,16 @@ document.getElementById('next-btn').addEventListener('click', function() {
 });
 
 function goToNextSection() {
+    console.log(`Current section index before: ${currentSectionIndex}`);
     sections[currentSectionIndex].style.display = 'none';
     currentSectionIndex++;
     if (currentSectionIndex < sections.length) {
         sections[currentSectionIndex].style.display = 'block';
+        console.log(`Current section index after: ${currentSectionIndex}`);
 
         // Initialize charts when entering the dashboard section
         if (currentSectionIndex === 1) {
+            console.log('Creating charts');
             createCharts();
         }
     }
