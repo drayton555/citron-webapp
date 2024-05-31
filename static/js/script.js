@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     sections[currentSectionIndex].classList.add('active');
 });
 
-// Handle the next button click
+// Handle the next button click in the conversation section
 document.getElementById('next-btn').addEventListener('click', function() {
     const responseElement = document.getElementById('response');
     const responseValue = responseElement.value.trim();
