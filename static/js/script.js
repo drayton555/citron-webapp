@@ -101,6 +101,12 @@ function goToNextSection() {
 }
 
 function createCharts() {
+        // Set the data for the Real Time Value card
+    document.querySelector('.large-number-card .large-number').textContent = '$45,678.90';
+
+    // Set the data for the Total Market Value card
+    document.querySelectorAll('.large-number-card .large-number')[1].textContent = '$5,000,000';
+    
     createPieChart('marketShareChart', ['Product A', 'Product B', 'Product C'], [30, 40, 30]);
     createLineChart('salesVolumeChart', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [150, 200, 250, 300, 350, 400]);
     createBarChart('customerDemographicsChart', ['18-24', '25-34', '35-44', '45-54'], [30, 50, 40, 20]);
