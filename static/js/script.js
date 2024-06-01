@@ -77,7 +77,7 @@ document.getElementById('next-btn').addEventListener('click', function() {
 });
 
 function askNextQuestion() {
-    const nextQuestion = currentQuestionIndex === 0 ? "What do you want to create today?" : followUpQuestions[currentQuestionIndex - 1];
+    const nextQuestion = currentQuestionIndex === 0 ? "..." : followUpQuestions[currentQuestionIndex - 1];
     const chatBubble = document.createElement('div');
     chatBubble.className = 'chat-bubble';
     chatBubble.textContent = nextQuestion;
