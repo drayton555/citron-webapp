@@ -59,7 +59,7 @@ document.getElementById('next-btn').addEventListener('click', function() {
         const chatBubble = document.createElement('div');
         chatBubble.className = 'chat-bubble user';
         chatBubble.textContent = responseValue;
-        document.getElementById('chat-bubbles').appendChild(chatBubble);
+        document.getElementById('chat-bubbles').prepend(chatBubble);
 
         // Clear the input field
         responseElement.value = '';
