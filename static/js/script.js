@@ -84,18 +84,55 @@ function askNextQuestion() {
     document.getElementById('chat-bubbles').prepend(chatBubble);
 }
 
+    // Initialize the welcome popup
+    if (currentSectionIndex === 1) {
+        showWelcomePopup();
+    }
+});
+
+function showWelcomePopup() {
+    const welcomeBubble = document.getElementById('welcome-bubble');
+    const welcomeText = document.getElementById('welcome-text');
+    const welcomeCircle = document.getElementById('welcome-circle');
+    const message = "Welcome to your profile page. Here, you will see real-time market data for your idea. As you update your progress, this information will change accordingly. It will also adjust with market shifts, ensuring you always have accurate, up-to-date data. Together, we'll optimize these stats to make your idea the best it can be.";
+
+    // Display the welcome bubble
+    welcomeBubble.style.display = 'block';
+
+    // Typewriter effect for the welcome message
+    let index = 0;
+    function typeWriter() {
+        if (index < message.length) {
+            welcomeText.textContent += message.charAt(index);
+            index++;
+            setTimeout(typeWriter, 50);
+        } else {
+            // After the text is fully displayed, hide the bubble after a delay
+            setTimeout(() => {
+                welcomeBubble.style.display = 'none';
+            }, 3000); // Adjust the delay as needed
+        }
+    }
+
+    // Start the typewriter effect
+    typeWriter();
+
+    // Hide the bubble and only show the circle when clicked
+    welcomeCircle.addEventListener('click', () => {
+        welcomeBubble.style.display = 'none';
+    });
+}
+
 function goToNextSection() {
-    console.log(`Current section index before: ${currentSectionIndex}`);
     sections[currentSectionIndex].style.display = 'none';
     currentSectionIndex++;
     if (currentSectionIndex < sections.length) {
         sections[currentSectionIndex].style.display = 'block';
-        console.log(`Current section index after: ${currentSectionIndex}`);
 
         // Initialize charts when entering the dashboard section
         if (currentSectionIndex === 1) {
-            console.log('Creating charts');
             createCharts();
+            showWelcomePopup(); // Call the function to show the welcome popup
         }
     }
 }
@@ -220,39 +257,6 @@ function createDoughnutChart(id, labels, data) {
         options: {
             responsive: true,
         }
-    });
-}
-
-function showWelcomePopup() {
-    const welcomeBubble = document.getElementById('welcome-bubble');
-    const welcomeText = document.getElementById('welcome-text');
-    const welcomeCircle = document.getElementById('welcome-circle');
-    const message = "Welcome to your profile page. Here, you will see real-time market data for your idea. As you update your progress, this information will change accordingly. It will also adjust with market shifts, ensuring you always have accurate, up-to-date data. Together, we'll optimize these stats to make your idea the best it can be.";
-
-    // Display the welcome bubble
-    welcomeBubble.style.display = 'block';
-
-    // Typewriter effect for the welcome message
-    let index = 0;
-    function typeWriter() {
-        if (index < message.length) {
-            welcomeText.textContent += message.charAt(index);
-            index++;
-            setTimeout(typeWriter, 50);
-        } else {
-            // After the text is fully displayed, hide the bubble after a delay
-            setTimeout(() => {
-                welcomeBubble.style.display = 'none';
-            }, 3000); // Adjust the delay as needed
-        }
-    }
-
-    // Start the typewriter effect
-    typeWriter();
-
-    // Hide the bubble and only show the circle when clicked
-    welcomeCircle.addEventListener('click', () => {
-        welcomeBubble.style.display = 'none';
     });
 }
 
