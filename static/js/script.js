@@ -81,7 +81,7 @@ function askNextQuestion() {
     const chatBubble = document.createElement('div');
     chatBubble.className = 'chat-bubble';
     chatBubble.textContent = nextQuestion;
-    document.getElementById('chat-bubbles').appendChild(chatBubble);
+    document.getElementById('chat-bubbles').prepend(chatBubble);
 }
 
 function goToNextSection() {
