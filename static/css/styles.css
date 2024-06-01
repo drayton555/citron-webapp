@@ -13,17 +13,6 @@ body {
     min-height: 100vh;
     flex-direction: column;
     overflow: hidden;
-}
-
-.container {
-    display: flex;
-    max-width: 1200px;
-    width: 100%;
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-}
 
 .main-content {
     flex: 1;
