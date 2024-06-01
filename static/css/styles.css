@@ -260,10 +260,6 @@ footer {
     max-width: 40%;
     word-wrap: break-word;
 }
-    
-.chat-bubble.initial {
-    max-width: 20%; /* Smaller width for the initial chat bubble */
-}
 
 .chat-bubble.user {
     background-color: #ffcc00; /* Brand yellow for user */
