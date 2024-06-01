@@ -19,19 +19,30 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentSectionIndex === 1) {
         document.getElementById('user-prompt').innerText = responses.idea || '';
     }
-    
+
+    // Add the initial chat bubble when the page loads
+    const initialChatBubble = document.createElement('div');
+    initialChatBubble.className = 'chat-bubble initial';
+    initialChatBubble.textContent = "What do you want to create today?";
+    document.getElementById('chat-bubbles').appendChild(initialChatBubble);
+
     const responseElement = document.getElementById('response');
     responseElement.addEventListener('input', function() {
         responseElement.style.height = 'auto';
         responseElement.style.height = responseElement.scrollHeight + 'px';
     });
-    
+
     responseElement.addEventListener('keydown', function(event) {
         if (event.key === 'Enter' && !event.shiftKey) {
             event.preventDefault();
             document.getElementById('next-btn').click();
         }
     });
+
+    // Initialize the welcome popup
+    if (currentSectionIndex === 1) {
+        showWelcomePopup();
+    }
 });
 
 document.getElementById('next-btn').addEventListener('click', function() {
@@ -84,12 +95,6 @@ function askNextQuestion() {
     document.getElementById('chat-bubbles').prepend(chatBubble);
 }
 
-    // Initialize the welcome popup
-    if (currentSectionIndex === 1) {
-        showWelcomePopup();
-    }
-});
-
 function showWelcomePopup() {
     const welcomeBubble = document.getElementById('welcome-bubble');
     const welcomeText = document.getElementById('welcome-text');
@@ -138,12 +143,13 @@ function goToNextSection() {
 }
 
 function createCharts() {
-        // Set the data for the Real Time Value card
+    // Set the data for the Real Time Value card
     document.querySelector('.large-number-card .large-number').textContent = '$45,678.90';
 
     // Set the data for the Total Market Value card
     document.querySelectorAll('.large-number-card .large-number')[1].textContent = '$5,000,000';
-    
+
+    // Existing chart creation code
     createPieChart('marketShareChart', ['Product A', 'Product B', 'Product C'], [30, 40, 30]);
     createLineChart('salesVolumeChart', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [150, 200, 250, 300, 350, 400]);
     createBarChart('customerDemographicsChart', ['18-24', '25-34', '35-44', '45-54'], [30, 50, 40, 20]);
