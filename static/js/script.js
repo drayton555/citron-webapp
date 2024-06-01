@@ -8,11 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('user-prompt').innerText = responses.idea || '';
     }
 
-    const initialChatBubble = document.createElement('div');
-    initialChatBubble.className = 'chat-bubble initial';
-    initialChatBubble.textContent = "What do you want to create today?";
-    document.getElementById('chat-bubbles').appendChild(initialChatBubble);  
-
     const responseElement = document.getElementById('response');
     responseElement.addEventListener('input', function() {
         responseElement.style.height = 'auto';
