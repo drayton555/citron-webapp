@@ -2,6 +2,26 @@ let currentSectionIndex = 0;
 const sections = document.querySelectorAll('section');
 const responses = {};
 
+document.addEventListener('DOMContentLoaded', function() {
+    sections[currentSectionIndex].style.display = 'block';
+    if (currentSectionIndex === 1) {
+        document.getElementById('user-prompt').innerText = responses.idea || '';
+    }
+
+    const responseElement = document.getElementById('response');
+    responseElement.addEventListener('input', function() {
+        responseElement.style.height = 'auto';
+        responseElement.style.height = responseElement.scrollHeight + 'px';
+    });
+
+    responseElement.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            document.getElementById('next-btn').click();
+        }
+    });
+});
+
 document.getElementById('next-btn').addEventListener('click', function() {
     const responseElement = document.getElementById('response');
     const responseValue = responseElement.value.trim();
