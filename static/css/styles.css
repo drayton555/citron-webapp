@@ -257,7 +257,7 @@ footer {
     padding: 10px 15px;
     border-radius: 15px;
     margin-bottom: 10px;
-    max-width: 40%;
+    max-width: 100%;
     word-wrap: break-word;
 }
 
@@ -273,6 +273,7 @@ footer {
     align-items: center;
     border-top: 1px solid #ddd;
     padding-top: 10px;
+    max-width: 50%;
 }
 
 /* Chat Input */
