@@ -59,7 +59,7 @@ document.getElementById('next-btn').addEventListener('click', function() {
         const chatBubble = document.createElement('div');
         chatBubble.className = 'chat-bubble user';
         chatBubble.textContent = responseValue;
-        document.getElementById('chat-bubbles').prepend(chatBubble);
+        document.getElementById('chat-bubbles').appendChild(chatBubble);
 
         // Clear the input field
         responseElement.value = '';
@@ -81,7 +81,7 @@ function askNextQuestion() {
     const chatBubble = document.createElement('div');
     chatBubble.className = 'chat-bubble';
     chatBubble.textContent = nextQuestion;
-    document.getElementById('chat-bubbles').prepend(chatBubble);
+    document.getElementById('chat-bubbles').appendChild(chatBubble);
 }
 
 function goToNextSection() {
