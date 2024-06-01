@@ -247,7 +247,7 @@ footer {
 /* Chat Bubbles */
 .chat-bubbles {
     display: flex;
-    flex-direction: column-inverse;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     flex: 1;
@@ -297,8 +297,6 @@ footer {
     padding-top: 10px;
     max-width: 50%;
     margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
     position: relative;
 }
 
