@@ -247,7 +247,7 @@ footer {
 /* Chat Bubbles */
 .chat-bubbles {
     diaply: flex;
-    flex-direction: column-reverse; /*This ensures new messages appear at the top */
+    flex-direction: column;
     flex: 1;
     overflow-y: auto;
     padding: 10px;
