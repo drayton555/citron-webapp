@@ -247,7 +247,7 @@ footer {
 /* Chat Bubbles */
 .chat-bubbles {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-inverse;
     justify-content: flex-start;
     align-items: flex-start;
     flex: 1;
