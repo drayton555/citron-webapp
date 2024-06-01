@@ -7,7 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentSectionIndex === 1) {
         document.getElementById('user-prompt').innerText = responses.idea || '';
     }
-
+    
+    const responseElement = document.getElementById('response');
+    responseElement.addEventListener('input', function() {
+        responseElement.style.height = 'auto';
+        responseElement.style.height = responseElement.scrollHeight + 'px';
+    });
+    
     responseElement.addEventListener('keydown', function(event) {
         if (event.key === 'Enter' && !event.shiftKey) {
             event.preventDefault();
