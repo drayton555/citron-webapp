@@ -357,3 +357,70 @@ footer {
     background-color: #e6b800;
     transform: scale(1.05);
 }
+
+/* Styles for the welcome popup */
+#welcome-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* Ensure it appears above other content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Yellow Circle */
+#welcome-circle {
+    width: 50px;
+    height: 50px;
+    background-color: #ffcc00; /* Brand yellow color */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Speech Bubble */
+#welcome-bubble {
+    background-color: #FFFFFF;
+    color: #2a2a2a;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    max-width: 300px;
+    display: none; /* Initially hidden */
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#welcome-bubble::before {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Adjust this value based on bubble size */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #FFFFFF;
+}
+
+/* Typewriter effect for the text */
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+#welcome-text {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #ffcc00; /* Brand yellow cursor */
+    width: 0;
+    animation: typewriter 4s steps(40) 1s 1 normal both, blinkTextCursor 500ms steps(40) infinite normal;
+}
+
+@keyframes blinkTextCursor {
+    from { border-right-color: #ffcc00; }
+    to { border-right-color: transparent; }
+}
+
