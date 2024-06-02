@@ -370,14 +370,7 @@ footer {
 }
 
 .welcome-card {
-    position: absolute;
-    top: 20px; /* Move the card to the top */
-    right: 20px;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: right;
-    width: 20%;
+    position: relative;
     background-color: #FFFFFF; /* Brand yellow */
     color: #2a2a2a; /* Dark text color */
     border-radius: 12px;
@@ -388,8 +381,8 @@ footer {
 }
 
 #welcome-text {
-    font-size: 20px;
-    white-space: nowwrap; /* Allows multiline text */
+    font-size: 47px;
+    white-space: pre-wrap; /* Allows multiline text */
     overflow: hidden;
     border-right: 3px solid #2a2a2a; /* Cursor color */
     display: inline-block;
