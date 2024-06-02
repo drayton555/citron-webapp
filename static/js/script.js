@@ -206,12 +206,31 @@ function createDoughnutChart(id, labels, data) {
     });
 }
 
+function showBusinessPlanPopup() {
+    const businessPlanWelcomeText = document.getElementById('business-plan-welcome-text');
+    const message = "Here, you will find a detailed business plan based on your idea. This real-time document updates with your every input. We'll use it to guide the development of your idea together, creating steps to take and milestones to achieve. I'll help you refine and create the best plan possible.";
+
+    let index = 0;
+    function typeWriter() {
+        if (index < message.length) {
+            businessPlanWelcomeText.textContent += message.charAt(index);
+            index++;
+            setTimeout(typeWriter, 50);
+        } else {
+            businessPlanWelcomeText.style.borderRight = 'none';
+        }
+    }
+
+    typeWriter();
+}
+
 function goToBusinessPlan() {
     console.log('Transitioning to the business plan page');
     sections[currentSectionIndex].style.display = 'none';
     currentSectionIndex++;
     if (currentSectionIndex < sections.length) {
         sections[currentSectionIndex].style.display = 'block';
+        showBusinessPlanPopup();
     }
 }
 
