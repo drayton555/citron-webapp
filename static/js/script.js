@@ -95,6 +95,14 @@ function askNextQuestion() {
     document.getElementById('chat-bubbles').prepend(chatBubble);
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    sections[currentSectionIndex].style.display = 'block';
+    if (currentSectionIndex === 1) {
+        document.getElementById('user-prompt').innerText = responses.idea || '';
+        showWelcomePopup();
+    }
+});
+
 function showWelcomePopup() {
     const welcomeBubble = document.getElementById('welcome-bubble');
     const welcomeText = document.getElementById('welcome-text');
