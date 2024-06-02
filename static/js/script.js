@@ -66,7 +66,6 @@ function showWelcomePopup() {
     }
 
     // Start the typewriter effect
-    welcomeText.textContent = '';
     typeWriter();
 }
 
