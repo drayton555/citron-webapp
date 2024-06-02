@@ -381,6 +381,7 @@ footer {
     display: inline-block;
     animation: blinkTextCursor 500ms steps(40) infinite normal;
     font-family: 'Open Sans', sans-serif;
+    word-break: break-word;
 }
 
 @keyframes blinkTextCursor {
