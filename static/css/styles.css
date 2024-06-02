@@ -413,3 +413,10 @@ footer {
     from { border-right-color: #ffcc00; }
     to { border-right-color: transparent; }
 }
+
+.logo {
+    display: block;
+    margin: 0 auto 20px; /* Center the logo and add some space below it */
+    width: 100px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
