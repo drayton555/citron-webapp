@@ -22,19 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('next-btn').click();
         }
     });
-
-    // Initialize the welcome popup
-    if (currentSectionIndex === 1) {
-        showWelcomePopup();
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    sections[currentSectionIndex].style.display = 'block';
-    if (currentSectionIndex === 1) {
-        document.getElementById('user-prompt').innerText = responses.idea || '';
-        showWelcomePopup();
-    }
 });
 
 function showWelcomePopup() {
@@ -57,6 +44,7 @@ function showWelcomePopup() {
             // After the text is fully displayed, hide the bubble after a delay
             setTimeout(() => {
                 welcomeBubble.style.display = 'none';
+                welcomeCircle.style.display = 'block';
             }, 3000); // Adjust the delay as needed
         }
     }
@@ -70,16 +58,39 @@ function showWelcomePopup() {
     });
 }
 
+document.getElementById('next-btn').addEventListener('click', function() {
+    const responseElement = document.getElementById('response');
+    const responseValue = responseElement.value.trim();
+
+    if (responseValue) {
+        responses.idea = responseValue;
+
+        // Create chat bubble for the user's input
+        const chatBubble = document.createElement('div');
+        chatBubble.className = 'chat-bubble user';
+        chatBubble.textContent = responseValue;
+        document.getElementById('chat-bubbles').prepend(chatBubble);
+
+        // Clear the input field
+        responseElement.value = '';
+        responseElement.style.height = '40px';  // Reset to initial height
+
+        goToNextSection();
+    } else {
+        alert('Please provide a response.');
+    }
+});
+
 function goToNextSection() {
     sections[currentSectionIndex].style.display = 'none';
     currentSectionIndex++;
     if (currentSectionIndex < sections.length) {
         sections[currentSectionIndex].style.display = 'block';
 
-        // Initialize charts when entering the dashboard section
+        // Initialize charts and show popup when entering the dashboard section
         if (currentSectionIndex === 1) {
             createCharts();
-            showWelcomePopup(); // Call the function to show the welcome popup
+            showWelcomePopup();
         }
     }
 }
@@ -91,7 +102,6 @@ function createCharts() {
     // Set the data for the Total Market Value card
     document.querySelectorAll('.large-number-card .large-number')[1].textContent = '$5,000,000';
 
-    // Existing chart creation code
     createPieChart('marketShareChart', ['Product A', 'Product B', 'Product C'], [30, 40, 30]);
     createLineChart('salesVolumeChart', ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], [150, 200, 250, 300, 350, 400]);
     createBarChart('customerDemographicsChart', ['18-24', '25-34', '35-44', '45-54'], [30, 50, 40, 20]);
@@ -206,24 +216,6 @@ function createDoughnutChart(id, labels, data) {
             responsive: true,
         }
     });
-}
-
-function goToBusinessPlan() {
-    console.log('Transitioning to the business plan page');
-    sections[currentSectionIndex].style.display = 'none';
-    currentSectionIndex++;
-    if (currentSectionIndex < sections.length) {
-        sections[currentSectionIndex].style.display = 'block';
-    }
-}
-
-function goToCitronIntroduction() {
-    // Hide the business plan section and show the Citron introduction section
-    sections[currentSectionIndex].style.display = 'none';
-    currentSectionIndex++;
-    if (currentSectionIndex < sections.length) {
-        sections[currentSectionIndex].style.display = 'block';
-    }
 }
 
 function handleFinalResponse(response) {
