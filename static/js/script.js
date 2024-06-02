@@ -79,6 +79,8 @@ function goToNextSection() {
         if (currentSectionIndex === 1) {
             createCharts();
             showWelcomePopup();
+        } else if (currentSectionIndex === 2) {
+            showBusinessPlanPopup();
         }
     }
 }
