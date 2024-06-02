@@ -374,7 +374,7 @@ footer {
 }
 
 #welcome-text {
-    font-size: 47px;
+    font-size: 25px;
     white-space: pre-wrap; /* Allows multiline text */
     overflow: hidden;
     border-right: 3px solid #2a2a2a; /* Cursor color */
