@@ -391,8 +391,8 @@ footer {
 /* Styles for the business plan welcome card */
 #welcome-card {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    top: 20px;    /* Position the card from the top */
+    right: 5px;  /* Maintain the right alignment */
     z-index: 1000;
     display: flex;
     flex-direction: column;
