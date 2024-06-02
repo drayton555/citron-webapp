@@ -207,15 +207,21 @@ function createDoughnutChart(id, labels, data) {
 }
 
 function goToBusinessPlan() {
-    // Hide the result section and show the business plan section
-    document.getElementById('result').style.display = 'none';
-    document.getElementById('business-plan').style.display = 'block';
+    console.log('Transitioning to the business plan page');
+    sections[currentSectionIndex].style.display = 'none';
+    currentSectionIndex++;
+    if (currentSectionIndex < sections.length) {
+        sections[currentSectionIndex].style.display = 'block';
+    }
 }
 
 function goToCitronIntroduction() {
     // Hide the business plan section and show the Citron introduction section
-    document.getElementById('business-plan').style.display = 'none';
-    document.getElementById('citron-introduction').style.display = 'block';
+    sections[currentSectionIndex].style.display = 'none';
+    currentSectionIndex++;
+    if (currentSectionIndex < sections.length) {
+        sections[currentSectionIndex].style.display = 'block';
+    }
 }
 
 function handleFinalResponse(response) {
