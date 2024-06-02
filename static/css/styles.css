@@ -1,8 +1,8 @@
 /* Fonts and Colors */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: #FFFFFF;
     color: #2a2a2a;
     margin: 0;
@@ -49,7 +49,7 @@ body {
 
 .header .profile-info h3 {
     margin: 0;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 18px;
     color: #ffcc00;
 }
@@ -123,7 +123,7 @@ body {
 
 .stats-overview h2 {
     color: #ffcc00;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #result {
@@ -153,7 +153,7 @@ body {
 .card h3 {
     margin-bottom: 20px;
     color: #ffcc00;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 canvas {
@@ -193,13 +193,13 @@ canvas {
     
 #business-plan h2, #citron-introduction h2 {
     color: #ffcc00;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-bottom: 20px;
 }
 
 #business-plan-content h3 {
     color: #ffcc00;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #business-plan-content p, #business-plan-content ul, #citron-introduction p {
@@ -294,6 +294,7 @@ footer {
     margin-bottom: 10px;
     max-width: 60%; /* Adjust the max-width as needed */
     word-wrap: break-word;
+    font-family: 'Open Sans', sans-serif;
     
 .chat-bubble.user {
     background-color: #ffcc00; /* Brand yellow for user */
@@ -353,12 +354,13 @@ footer {
 }
 
 #welcome-text {
-    font-size: 16px;
+    font-size: 25px;
     white-space: pre-wrap; /* Allows multiline text */
     overflow: hidden;
     border-right: 3px solid #2a2a2a; /* Cursor color */
     display: inline-block;
     animation: blinkTextCursor 500ms steps(40) infinite normal;
+    font-family: 'Open Sans', sans-serif;
 }
 
 @keyframes blinkTextCursor {
@@ -379,12 +381,13 @@ footer {
 
 /* Welcome Text */
 #welcome-text {
-    font-size: 25px;
+    font-size: 30px;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid #ffcc00;
     width: 0;
     animation: typewriter 4s steps(40) 1s 1 normal both, blinkTextCursor 500ms steps(40) infinite normal;
+    font-family: 'Open Sans', sans-serif;
 }
 
 @keyframes typewriter {
