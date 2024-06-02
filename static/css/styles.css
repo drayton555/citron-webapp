@@ -13,6 +13,15 @@ body {
     min-height: 100vh;
     flex-direction: column;
     overflow: hidden;
+}
+
+.chat-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
 
 .main-content {
     flex: 1;
@@ -306,12 +315,12 @@ footer {
 .chat-input-container {
     display: flex;
     align-items: center;
+    border-top: 1px solid #ddd;
     padding-top: 10px;
     max-width: 50%;
-    margin-top: 20px
+    margin: 20px auto 0 auto;
     position: relative;
 }
-
 /* Chat Input */
 .chat-input {
     flex: 1;
