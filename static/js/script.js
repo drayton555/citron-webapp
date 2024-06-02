@@ -206,6 +206,18 @@ function createDoughnutChart(id, labels, data) {
     });
 }
 
+function goToBusinessPlan() {
+    // Hide the result section and show the business plan section
+    document.getElementById('result').style.display = 'none';
+    document.getElementById('business-plan').style.display = 'block';
+}
+
+function goToCitronIntroduction() {
+    // Hide the business plan section and show the Citron introduction section
+    document.getElementById('business-plan').style.display = 'none';
+    document.getElementById('citron-introduction').style.display = 'block';
+}
+
 function handleFinalResponse(response) {
     if (response === 'Yes') {
         window.location.href = "https://forms.office.com/r/BfzpzeDxJV";
