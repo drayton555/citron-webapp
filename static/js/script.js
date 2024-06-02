@@ -2,29 +2,13 @@ let currentSectionIndex = 0;
 const sections = document.querySelectorAll('section');
 const responses = {
     idea: '',
-    targetAudience: '',
-    uniquePoints: '',
-    location: ''
 };
-
-const followUpQuestions = [
-    "Who is your target audience?",
-    "What makes your creation unique?",
-    "Where will this venture be located?"
-];
-let currentQuestionIndex = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
     sections[currentSectionIndex].style.display = 'block';
     if (currentSectionIndex === 1) {
         document.getElementById('user-prompt').innerText = responses.idea || '';
     }
-
-    // Add the initial chat bubble when the page loads
-    const initialChatBubble = document.createElement('div');
-    initialChatBubble.className = 'chat-bubble initial';
-    initialChatBubble.textContent = "What do you want to create today?";
-    document.getElementById('chat-bubbles').appendChild(initialChatBubble);
 
     const responseElement = document.getElementById('response');
     responseElement.addEventListener('input', function() {
@@ -44,56 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         showWelcomePopup();
     }
 });
-
-document.getElementById('next-btn').addEventListener('click', function() {
-    const responseElement = document.getElementById('response');
-    const responseValue = responseElement.value.trim();
-
-    if (responseValue) {
-        // Store the response based on the current question index
-        switch (currentQuestionIndex) {
-            case 0:
-                responses.idea = responseValue;
-                break;
-            case 1:
-                responses.targetAudience = responseValue;
-                break;
-            case 2:
-                responses.uniquePoints = responseValue;
-                break;
-            case 3:
-                responses.location = responseValue;
-                break;
-        }
-
-        // Create chat bubble for the user's input
-        const chatBubble = document.createElement('div');
-        chatBubble.className = 'chat-bubble user';
-        chatBubble.textContent = responseValue;
-        document.getElementById('chat-bubbles').prepend(chatBubble);
-
-        // Clear the input field
-        responseElement.value = '';
-        responseElement.style.height = '40px';  // Reset to initial height
-
-        currentQuestionIndex++;
-        if (currentQuestionIndex < followUpQuestions.length + 1) {
-            askNextQuestion();
-        } else {
-            goToNextSection();
-        }
-    } else {
-        alert('Please provide a response.');
-    }
-});
-
-function askNextQuestion() {
-    const nextQuestion = currentQuestionIndex === 0 ? "..." : followUpQuestions[currentQuestionIndex - 1];
-    const chatBubble = document.createElement('div');
-    chatBubble.className = 'chat-bubble';
-    chatBubble.textContent = nextQuestion;
-    document.getElementById('chat-bubbles').prepend(chatBubble);
-}
 
 document.addEventListener('DOMContentLoaded', function() {
     sections[currentSectionIndex].style.display = 'block';
