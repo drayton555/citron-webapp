@@ -6,13 +6,12 @@
     <link rel="stylesheet" href="static/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </head>
 <body>
 <section id="conversation-section">
     <div class="chat-wrapper">
         <div id="chat-bubbles" class="chat-bubbles">
-            <img src="./img/lemon.SVG" alt="Citron Logo" class="logo">   
+            <img src="static/img/lemon.svg" alt="Citron Logo" class="logo">   
             <div class="chat-input-container">
                 <textarea id="response" class="chat-input" placeholder="What do you want to create today..." required></textarea>
                 <button id="next-btn" class="chat-button">Send</button>
@@ -20,159 +19,158 @@
         </div>
     </div>
 </section>
-            <!-- Dashboard Section -->
-        <section id="result" style="display:none;">
-            <div class="header">
-                <div class="profile">
-                    <img src="static/img/profile.svg" alt="Profile Picture">
-                    <div class="profile-info">
-                        <h3 id="user-prompt"></h3>
-                    </div>
-                </div>
-                <div class="actions">
-                    <button>View Profile</button>
-                    <button>Edit Profile</button>
-                </div>
+<!-- Dashboard Section -->
+<section id="result" style="display:none;">
+    <div class="header">
+        <div class="profile">
+            <img src="static/img/profile.svg" alt="Profile Picture">
+            <div class="profile-info">
+                <h3 id="user-prompt"></h3>
             </div>
-            <div class="stats-overview">
-                <h2>Your Idea Analysis...</h2>
-                <div class="stats-cards">
-                    <div class="card welcome-card">
-                        <div id="welcome-text"></div>
-                    </div>
-                    <div class="card large-number-card">
-                        <h3>Real Time Value</h3>
-                        <p class="large-number">$45,678.90</p/>
-                    </div>
-                    <div class="card large-number-card">
-                        <h3>Total Market Value</h3>
-                        <p class="large-number">$5,000,000</p>
-                    </div>
-                    <div class="card">
-                        <h3>Market Share</h3>
-                        <canvas id="marketShareChart"></canvas>
-                    </div>
-                    <div class="card">
-                        <h3>Total Sales Volume</h3>
-                        <canvas id="salesVolumeChart"></canvas>
-                    </div>
-                    <div class="card">
-                        <h3>Customer Demographics</h3>
-                        <canvas id="customerDemographicsChart"></canvas>
-                    </div>
-                    <div class="card">
-                        <h3>Potential Performance</h3>
-                        <canvas id="productPerformanceChart"></canvas>
-                    </div>
-                    <div class="card">
-                        <h3>Revenue by Region</h3>
-                        <canvas id="revenueByRegionChart"></canvas>
-                    </div>
-                    <div class="card">
-                        <h3>Market Revenue</h3>
-                        <canvas id="advertisingSpendChart"></canvas>
-                    </div>
-                    <div class="card">
-                        <h3>Competitor Analysis</h3>
-                        <canvas id="competitorAnalysisChart"></canvas>
-                    </div>
-                    <div class="card">
-                        <h3>Customer Retention Rate</h3>
-                        <canvas id="customerRetentionRateChart"></canvas>
-                    </div>
-                    <div class="card">
-                        <h3>Market Growth Rate</h3>
-                        <canvas id="marketGrowthRateChart"></canvas>
-                    </div>
-                    <div class="card">
-                        <h3>Sales Conversion Rate</h3>
-                        <canvas id="salesConversionRateChart"></canvas>
-                    </div>
-                </div>
-            </div>
-            <button onclick="goToBusinessPlan()" class="button">Next</button>
-        </section>
-
-            <!-- Business Plan Section -->
-            <section id="business-plan" style="display:none;">
-                <h2>Business Plan</h2>
-                <div id="business-plan-content">
-                    <h3>Executive Summary</h3>
-                    <p>Our comic book store, "Epic Comics", aims to be the premier destination for comic book enthusiasts in the downtown area. With a wide selection of new releases, rare collectibles, and exclusive merchandise, we cater to both casual readers and dedicated collectors. Our mission is to foster a community of comic book lovers and provide a welcoming space for all ages.</p>
-                    
-                    <h3>Financial Projections</h3>
-                    <table>
-                        <tr>
-                            <th>Year</th>
-                            <th>Revenue</th>
-                            <th>Expenses</th>
-                            <th>Profit</th>
-                        </tr>
-                        <tr>
-                            <td>2024</td>
-                            <td>$150,000</td>
-                            <td>$120,000</td>
-                            <td>$30,000</td>
-                        </tr>
-                        <tr>
-                            <td>2025</td>
-                            <td>$180,000</td>
-                            <td>$130,000</td>
-                            <td>$50,000</td>
-                        </tr>
-                        <tr>
-                            <td>2026</td>
-                            <td>$210,000</td>
-                            <td>$140,000</td>
-                            <td>$70,000</td>
-                        </tr>
-                        <tr>
-                            <td>2027</td>
-                            <td>$240,000</td>
-                            <td>$150,000</td>
-                            <td>$90,000</td>
-                        </tr>
-                        <tr>
-                            <td>2028</td>
-                            <td>$270,000</td>
-                            <td>$160,000</td>
-                            <td>$110,000</td>
-                        </tr>
-                    </table>
-                    
-                    <h3>Next Steps</h3>
-                    <ul>
-                        <li> Let's conduct a detailed market analysis to identify target demographics and purchasing behaviors.</li>
-                        <li>Let's develop a comprehensive marketing strategy to attract both new and existing comic book fans.</li>
-                        <li>Let's secure initial funding to cover startup costs, including inventory, store fixtures, and marketing expenses.</li>
-                        <li>Let's establish relationships with key comic book distributors and publishers to ensure a steady supply of new releases and exclusive items.</li>
-                    </ul>
-                    
-                    <h3>Milestones</h3>
-                    <ul>
-                        <li>Q1 2024: Secure retail space and complete store renovations.</li>
-                        <li>Q2 2024: Launch marketing campaign and hold a grand opening event.</li>
-                        <li>Q3 2024: Reach 500 loyalty program members.</li>
-                        <li>Q4 2024: Achieve $150,000 in annual revenue.</li>
-                    </ul>
-                    <div class="card welcome-card">
-                        <div id="business-plan-welcome-text"></div>
-                    </div>
-                </div>
-                <button onclick="goToCitronIntroduction()" class="button">Next</button>
-            </section>
-
-            <!-- Citron Introduction Section -->
-            <section id="citron-introduction" style="display:none;">
-                <h2>So what's all this??!</h2>
-                <p>Introducing Citron, your AI Co-Founder you didn't know you needed. This AI powered platform will be able to help you with business ideation (giving you access to accurate, real-time and customized market data), business planning, task tracking and management, and much more! It will allow you to turn your ideas into great businesses. Please give us feedback as we develop this app!</p>
-                <button onclick="window.location.href='https://forms.office.com/r/BfzpzeDxJV'" class="button">Feedback</button>
-            </section>
+        </div>
+        <div class="actions">
+            <button>View Profile</button>
+            <button>Edit Profile</button>
         </div>
     </div>
-    <footer>
-        <p class="disclaimer">This is a mock app for proof of concept. None of the information is real. Please do not enter any real information.</p>
-    </footer>
-    <script src="static/js/script.js" defer></script>
+    <div class="stats-overview">
+        <h2>Your Idea Analysis...</h2>
+        <div class="stats-cards">
+            <div class="card welcome-card">
+                <div id="welcome-text"></div>
+            </div>
+            <div class="card large-number-card">
+                <h3>Real Time Value</h3>
+                <div class="large-number">$45,678.90</div>
+            </div>
+            <div class="card large-number-card">
+                <h3>Total Market Value</h3>
+                <div class="large-number">$5,000,000</div>
+            </div>
+            <div class="card">
+                <h3>Market Share</h3>
+                <canvas id="marketShareChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>Total Sales Volume</h3>
+                <canvas id="salesVolumeChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>Customer Demographics</h3>
+                <canvas id="customerDemographicsChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>Potential Performance</h3>
+                <canvas id="productPerformanceChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>Revenue by Region</h3>
+                <canvas id="revenueByRegionChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>Market Revenue</h3>
+                <canvas id="advertisingSpendChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>Competitor Analysis</h3>
+                <canvas id="competitorAnalysisChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>Customer Retention Rate</h3>
+                <canvas id="customerRetentionRateChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>Market Growth Rate</h3>
+                <canvas id="marketGrowthRateChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>Sales Conversion Rate</h3>
+                <canvas id="salesConversionRateChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <button onclick="goToBusinessPlan()" class="button">Next</button>
+</section>
+
+<!-- Business Plan Section -->
+<section id="business-plan" style="display:none;">
+    <h2>Business Plan</h2>
+    <div id="business-plan-content">
+        <h3>Executive Summary</h3>
+        <p>Our comic book store, "Epic Comics", aims to be the premier destination for comic book enthusiasts in the downtown area. With a wide selection of new releases, rare collectibles, and exclusive merchandise, we cater to both casual readers and dedicated collectors. Our mission is to foster a community of comic book lovers and provide a welcoming space for all ages.</p>
+        
+        <h3>Financial Projections</h3>
+        <table>
+            <tr>
+                <th>Year</th>
+                <th>Revenue</th>
+                <th>Expenses</th>
+                <th>Profit</th>
+            </tr>
+            <tr>
+                <td>2024</td>
+                <td>$150,000</td>
+                <td>$120,000</td>
+                <td>$30,000</td>
+            </tr>
+            <tr>
+                <td>2025</td>
+                <td>$180,000</td>
+                <td>$130,000</td>
+                <td>$50,000</td>
+            </tr>
+            <tr>
+                <td>2026</td>
+                <td>$210,000</td>
+                <td>$140,000</td>
+                <td>$70,000</td>
+            </tr>
+            <tr>
+                <td>2027</td>
+                <td>$240,000</td>
+                <td>$150,000</td>
+                <td>$90,000</td>
+            </tr>
+            <tr>
+                <td>2028</td>
+                <td>$270,000</td>
+                <td>$160,000</td>
+                <td>$110,000</td>
+            </tr>
+        </table>
+        
+        <h3>Next Steps</h3>
+        <ul>
+            <li>Let's conduct a detailed market analysis to identify target demographics and purchasing behaviors.</li>
+            <li>Let's develop a comprehensive marketing strategy to attract both new and existing comic book fans.</li>
+            <li>Let's secure initial funding to cover startup costs, including inventory, store fixtures, and marketing expenses.</li>
+            <li>Let's establish relationships with key comic book distributors and publishers to ensure a steady supply of new releases and exclusive items.</li>
+        </ul>
+        
+        <h3>Milestones</h3>
+        <ul>
+            <li>Q1 2024: Secure retail space and complete store renovations.</li>
+            <li>Q2 2024: Launch marketing campaign and hold a grand opening event.</li>
+            <li>Q3 2024: Reach 500 loyalty program members.</li>
+            <li>Q4 2024: Achieve $150,000 in annual revenue.</li>
+        </ul>
+        <div class="card welcome-card">
+            <div id="business-plan-welcome-text"></div>
+        </div>
+    </div>
+    <button onclick="goToCitronIntroduction()" class="button">Next</button>
+</section>
+
+<!-- Citron Introduction Section -->
+<section id="citron-introduction" style="display:none;">
+    <h2>So what's all this??!</h2>
+    <p>Introducing Citron, your AI Co-Founder you didn't know you needed. This AI powered platform will be able to help you with business ideation (giving you access to accurate, real-time and customized market data), business planning, task tracking and management, and much more! It will allow you to turn your ideas into great businesses. Please give us feedback as we develop this app!</p>
+    <button onclick="window.location.href='https://forms.office.com/r/BfzpzeDxJV'" class="button">Feedback</button>
+</section>
+
+<footer>
+    <p class="disclaimer">This is a mock app for proof of concept. None of the information is real. Please do not enter any real information.</p>
+</footer>
+<script src="static/js/script.js" defer></script>
 </body>
 </html>
