@@ -6,8 +6,10 @@ const responses = {
 
 document.addEventListener('DOMContentLoaded', function() {
     sections[currentSectionIndex].style.display = 'block';
+
     if (currentSectionIndex === 1) {
         document.getElementById('user-prompt').innerText = responses.idea || '';
+        showWelcomePopup();
     }
 
     const responseElement = document.getElementById('response');
@@ -23,26 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-function showWelcomePopup() {
-    const welcomeText = document.getElementById('welcome-text');
-    const message = "Welcome to your profile page. Here, you will see real-time market data for your idea. As you update your progress, this information will change accordingly. It will also adjust with market shifts, ensuring you always have accurate, up-to-date data. Together, we'll optimize these stats to make your idea the best it can be.";
-
-    let index = 0;
-    function typeWriter() {
-        if (index < message.length) {
-            welcomeText.textContent += message.charAt(index);
-            index++;
-            setTimeout(typeWriter, 50);
-        } else {
-            // Optionally, remove the cursor animation after typing is complete
-            welcomeText.style.borderRight = 'none';
-        }
-    }
-
-    // Start the typewriter effect
-    typeWriter();
-}
 
 document.getElementById('next-btn').addEventListener('click', function() {
     const responseElement = document.getElementById('response');
@@ -66,6 +48,26 @@ document.getElementById('next-btn').addEventListener('click', function() {
         alert('Please provide a response.');
     }
 });
+
+function showWelcomePopup() {
+    const welcomeText = document.getElementById('welcome-text');
+    const message = "Welcome to your profile page. Here, you will see real-time market data for your idea. As you update your progress, this information will change accordingly. It will also adjust with market shifts, ensuring you always have accurate, up-to-date data. Together, we'll optimize these stats to make your idea the best it can be.";
+
+    let index = 0;
+    function typeWriter() {
+        if (index < message.length) {
+            welcomeText.textContent += message.charAt(index);
+            index++;
+            setTimeout(typeWriter, 50);
+        } else {
+            // Optionally, remove the cursor animation after typing is complete
+            welcomeText.style.borderRight = 'none';
+        }
+    }
+
+    // Start the typewriter effect
+    typeWriter();
+}
 
 function goToNextSection() {
     sections[currentSectionIndex].style.display = 'none';
