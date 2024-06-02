@@ -359,6 +359,16 @@ footer {
 }
 
 /* Styles for the welcome popup */
+#popup-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* Ensure it appears above other content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    
 #welcome-popup {
     position: fixed;
     bottom: 20px;
