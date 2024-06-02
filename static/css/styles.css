@@ -120,6 +120,13 @@ body {
     resize: none;
 }
 
+#business-plan-content {
+    max-height: calc(100vh - 200px); /* Adjust the height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 15px; /* Optional: add padding to avoid content touching the scrollbar */
+    margin-right: -15px; /* Optional: align content inside the scrollbar */
+}
+
 .button {
     background-color: #ffcc00;
     color: #2a2a2a;
