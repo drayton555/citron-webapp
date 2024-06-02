@@ -25,15 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function showWelcomePopup() {
-    const welcomeBubble = document.getElementById('welcome-bubble');
     const welcomeText = document.getElementById('welcome-text');
-    const welcomeCircle = document.getElementById('welcome-circle');
     const message = "Welcome to your profile page. Here, you will see real-time market data for your idea. As you update your progress, this information will change accordingly. It will also adjust with market shifts, ensuring you always have accurate, up-to-date data. Together, we'll optimize these stats to make your idea the best it can be.";
 
-    // Display the welcome bubble
-    welcomeBubble.style.display = 'block';
-
-    // Typewriter effect for the welcome message
     let index = 0;
     function typeWriter() {
         if (index < message.length) {
@@ -41,21 +35,13 @@ function showWelcomePopup() {
             index++;
             setTimeout(typeWriter, 50);
         } else {
-            // After the text is fully displayed, hide the bubble after a delay
-            setTimeout(() => {
-                welcomeBubble.style.display = 'none';
-                welcomeCircle.style.display = 'block';
-            }, 3000); // Adjust the delay as needed
+            // Optionally, remove the cursor animation after typing is complete
+            welcomeText.style.borderRight = 'none';
         }
     }
 
     // Start the typewriter effect
     typeWriter();
-
-    // Hide the bubble and only show the circle when clicked
-    welcomeCircle.addEventListener('click', () => {
-        welcomeBubble.style.display = 'none';
-    });
 }
 
 document.getElementById('next-btn').addEventListener('click', function() {
