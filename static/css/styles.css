@@ -285,23 +285,7 @@ footer {
     margin-bottom: 20px;
     width: 100%; /* Ensure it takes full width of the container */
     max-height: calc(100vh - 200px); /* Adjust to fit your layout */
-}
-
-/* Ensure latest messages are visible */
-.chat-bubbles::-webkit-scrollbar {
-    width: 8px;
-}
-
-.chat-bubbles::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-.chat-bubbles::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-.chat-bubbles::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    position: relative;
 }
 
 .chat-bubble {
