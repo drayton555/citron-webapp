@@ -285,7 +285,6 @@ footer {
     margin-bottom: 20px;
     width: 100%; /* Ensure it takes full width of the container */
     max-height: calc(100vh - 200px); /* Adjust to fit your layout */
-    position: relative;
 }
 
 .chat-bubble {
@@ -309,7 +308,7 @@ footer {
     border-top: 1px solid #ddd;
     padding-top: 10px;
     max-width: 50%;
-    margin: 20px auto 0 auto;
+    margin-top: 20px auto 0 auto;
     position: relative;
 }
 
