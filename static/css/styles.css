@@ -376,6 +376,7 @@ footer {
     background-color: #ffcc00; /* Brand yellow color */
     border-radius: 50%;
     cursor: pointer;
+    dispaly: none;
 }
 
 /* Speech Bubble */
